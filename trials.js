@@ -41,8 +41,8 @@ function getOddIndices(items) {
   const result = [];
 
   for (const idx in items) {
-    if (idx % 2 !== 0) {
-      result.push(items[idx]);
+    if (idx % 2 === 0) {
+      result.push(items[idx] + 1);
     }
   }
 
