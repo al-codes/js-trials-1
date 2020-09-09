@@ -8,31 +8,31 @@ def output_all_items(items):
         print(item)    
       
 
-
 def get_all_evens(nums):
-   
-   even_nums = []
+    """Prints out a list of all even numbers"""
+    
+    even_nums = []
 
-   for idx in nums:
-        if idx % 2 == 0:
-            even_nums.append(nnums[idx])
+    for num in nums:
+        if num % 2 == 0:
+            even_nums.append(num)
 
     return even_nums
 
 def get_odd_indices(items):
+    """Prints out a list of odd indexed items"""
     
     result = []
 
-    for idx in items:
-        if idx % 2 != 0:
-            result.append(items[idx])
+    for item in items:
+        if items.index(item) % 2 != 0:
+            result.append(item)
 
     return result
 
 
-
-
 def print_as_numbered_list(items):
+    """Prints out a numbered list"""
     
     i = 1
 
@@ -45,38 +45,108 @@ def print_as_numbered_list(items):
 
 
 def get_range(start, stop):
+    """Prints out array of numbers in a certain range"""
     
     nums = []
 
-    while num == start:
-        if num < stop:
-            num +=1
-            nums.append(num)
+    while start <= stop:
+        nums.append(start)
+        start += 1
+    
+    return nums
 
 
 def censor_vowels(word):
+    """Prints out string where vowels are replaced with a '*' """
+    
     chars = []
 
+
     for letter in word:
-        if 'aeiou' in letter:
-            chars.append(*)
+        if letter in "aeiou":
+            chars.append("*")
+
+        else:
+            chars.append(letter)
+
+    joined_letters = "".join(chars)
+    
+    return joined_letters
 
 
 def snake_to_camel(string):
-    pass  # TODO: replace this line with your code
+    """Prints out a string from snake case to camel case"""
+
+    words = string.split()
+
+    return words[0] + "".join(words[1].title() for word in words[1: ])
 
 
 def longest_word_length(words):
-    pass  # TODO: replace this line with your code
+    """Prints out the longest word length in a list of words"""
+   
+    for word in words:
+        longest = len(words[0])
 
+        if longest < len(word):
+            longest = len(word)
+
+    return longest
 
 def truncate(string):
-    pass  # TODO: replace this line with your code
+    """Prints out string without repeating characters"""
 
+    result = []
+
+    for char in string:
+        if len(result) == 0 or char != result[len(result) - 1]:
+            result.append(char)
+
+    return "".join(result)
+ 
 
 def has_balanced_parens(string):
-    pass  # TODO: replace this line with your code
+    """Returns true if all parentheses in a string are balanced"""
+    
+    parens = 0
+
+    for char in string:
+        if char == "(":
+            parens += 1
+
+        elif char == ")":
+            parens -= 1
+
+    if parens < 0 or parens > 0:
+        return False
+
+    else:
+        return True
 
 
 def compress(string):
-    pass  # TODO: replace this line with your code
+    """Prints out compressed version of string"""
+
+    compressed = []
+    current_char = ''
+    char_count = 0
+
+    for char in string:
+        if char != current_char:
+            compressed.append(current_char)
+
+            if char_count > 1:
+                compressed.append(str(char_count))
+
+            current_char = char
+            char_count = 0
+
+        char_count += 1
+    
+    compressed.append(current_char)
+    if char_count > 1:
+        compressed.append(str(char_count))
+
+    return "".join(compressed)
+
+

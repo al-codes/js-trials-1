@@ -41,8 +41,8 @@ function getOddIndices(items) {
   const result = [];
 
   for (const idx in items) {
-    if (idx % 2 === 0) {
-      result.push(items[idx] + 1);
+    if (idx % 2 !== 0) {
+      result.push(items[idx]);
     }
   }
 
@@ -182,13 +182,13 @@ function hasBalancedParens(string) {
     } else if (char === ')') {
       parens -= 1;
 
-      if (parens < 0) {
-        return false;
-      }
+  if (parens < 0 || parens > 0) {
+    return false; 
+} else if (parens == 0) {
+    return true;
+}
     }
   }
-
-  return parens < 0;
 }
 
 
