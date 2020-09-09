@@ -150,3 +150,4 @@ def compress(string):
     return "".join(compressed)
 
 
+#Next task - create tests for python functions
